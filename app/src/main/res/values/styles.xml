@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AnimationFade_right">
+        <!-- PopupWindow闹钟右弹出的效果 -->
+        <item name="android:windowEnterAnimation">@anim/alarm_pop_input</item>
+        <item name="android:windowExitAnimation">@anim/alarm_pop_output</item>
+    </style>
+
+    <style name="dialogPlanAnim" parent="android:Animation" mce_bogus="1">
+        <!--计划弹出框动画-->
+        <item name="android:windowEnterAnimation">@anim/plan_pop_input</item>
+        <item name="android:windowExitAnimation">@anim/plan_pop_output</item>
+    </style>
+
+    <style name="dialogPetAnim" parent="android:Animation" mce_bogus="1">
+        <!--宠物选择弹出框动画-->
+        <item name="android:windowEnterAnimation">@anim/pet_pop_input</item>
+        <item name="android:windowExitAnimation">@anim/pet_pop_output</item>
+    </style>
+
+</resources>
