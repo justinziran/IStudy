@@ -15,6 +15,8 @@ import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
@@ -81,6 +83,8 @@ import java.util.Map;
 import io.codetail.animation.ViewAnimationUtils;
 import pl.droidsonroids.gif.GifImageView;
 
+import static android.os.Build.VERSION.SDK_INT;
+
 public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnimatorListener {
     private static final String TAG = "MainActivity";
 
@@ -103,12 +107,12 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
     private LinearLayout linearLayout;
 
 
-//SharedPreferences,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        Log.i("mainactivity","mainactivity start");
+        Log.i("mainactivity","mainactivity start");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         SharedPreferences preferences = getSharedPreferences("background_main", MODE_PRIVATE);
         int backgroundMain = preferences.getInt("back",R.drawable.background_main1);
@@ -148,6 +152,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
 
     @Override
     protected void onResume() {
+        requestSettingCanDrawOverlays();
         super.onResume();
     }
 
@@ -654,7 +659,12 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
      */
     private void showNotifyWindow() {
         notifyParams = new WindowManager.LayoutParams();
-        notifyParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){//6.0
+            notifyParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            notifyParams.type =  WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
+
         notifyParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         notifyParams.format = PixelFormat.RGBA_8888;
         notifyParams.gravity = Gravity.TOP | Gravity.LEFT;
@@ -714,7 +724,11 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
      */
     public void initPetParams() {
         petParams = new WindowManager.LayoutParams();
-        petParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){//6.0
+            petParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            petParams.type =  WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         petParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         petParams.format = PixelFormat.RGBA_8888;
         petParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -775,6 +789,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         });
 
         retrieveSystemWindowManager();
+        requestSettingCanDrawOverlays();
         try {
             mWindowManager.addView(petLayout, petParams);
         } catch (IllegalStateException e) {
@@ -792,6 +807,20 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         }
     }
 
+    private void requestSettingCanDrawOverlays() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Log.i("CanDrawOverlays","未开启悬浮权限");
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.setData(Uri.parse("package:" + getPackageName()));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivityForResult(intent, 1);
+            } else {
+                //TODO do something you need
+                Log.i("CanDrawOverlays","已开启悬浮权限");
+            }
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

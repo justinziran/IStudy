@@ -32,7 +32,7 @@
     <string name="tv_minute">分</string>
     <string name="tv_second">秒</string>
     <string name="go_open">去开启</string>
-    
+
     <string name="no_permission">权限不足</string>
     <string name="no_permission_advice">需要为该App开启辅助功能才能正常运行</string>
     <string name="click_start">clickStrar</string>
@@ -44,15 +44,24 @@
 
     <!--温馨提示-->
     <string-array name="pet_saying">
-        <item >不要玩了，快点学习吧~</item>
-        <item >hhh~,去学习吧，反正你也打不开</item>
-        <item >zan~,应用解锁了，快去休息下吧</item>
-        <item >byebye~俺先睡会，不要偷懒哦</item>
+        <item>不要玩了，快点学习吧~</item>
+        <item>hhh~,去学习吧，反正你也打不开</item>
+        <item>zan~,应用解锁了，快去休息下吧</item>
+        <item>byebye~俺先睡会，不要偷懒哦</item>
     </string-array>
 
     <string name="accessibility_description">开启服务是使用iStudy的"监测App打开"的功能,开启后才能使用iStudy的核心功能\n\n提示：打开服务时，会收到系统例行的警示提醒，iStudy不会进行侵害用户利益的行为，请放心使用</string>
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>

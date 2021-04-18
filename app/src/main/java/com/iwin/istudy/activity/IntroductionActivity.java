@@ -44,7 +44,7 @@ public class IntroductionActivity extends AppCompatActivity implements ViewPager
         tvBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IntroductionActivity.this,MainActivity.class);
+                Intent intent = new Intent(IntroductionActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -3,4 +3,24 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="sliding_menu_width">80dp</dimen>
+
+    <dimen name="navBarHeight">56dp</dimen>
+    <dimen name="marginSize">16dp</dimen>
+    <dimen name="navBarTitleSize">24sp</dimen>
+    <dimen name="titleSize">16sp</dimen>
+    <dimen name="yjnSize">25sp</dimen>
+    <dimen name="infoSize">14sp</dimen>
+    <dimen name="inputViewHeight">44dp</dimen>
+    <dimen name="btnHeight">44dp</dimen>
+    <dimen name="radius">5dp</dimen>
+    <dimen name="itemHeight">44dp</dimen>
+    <dimen name="marginTabSize">4dp</dimen>
+    <dimen name="albumMarginSize">2dp</dimen>
+    <dimen name="playNumImgSize">18dp</dimen>
+    <dimen name="itemIconSize">56dp</dimen>
+    <dimen name="itemPlaySize">36dp</dimen>
+    <dimen name="discTopSize">90dp</dimen>
+    <dimen name="playMusicIconSize">210dp</dimen>
+
+
 </resources>

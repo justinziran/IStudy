@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RegisterActivity"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <com.iwin.istudy.view.InputView
+        android:id="@+id/input_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputViewHeight"
+        android:layout_marginTop="@dimen/marginSize"
+        app:input_icon="@drawable/phone"
+        app:input_hint="请输入手机号"
+        app:is_password="false"
+        />
+
+    <View
+        style="@style/line"/>
+
+    <com.iwin.istudy.view.InputView
+        android:id="@+id/input_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputViewHeight"
+        app:input_icon="@drawable/password"
+        app:input_hint="请输入密码"
+        app:is_password="true"
+        />
+
+    <View
+        style="@style/line"/>
+
+    <com.iwin.istudy.view.InputView
+        android:id="@+id/input_password2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputViewHeight"
+        app:input_icon="@drawable/password"
+        app:input_hint="请确认密码"
+        app:is_password="true"
+        />
+
+    <View
+        style="@style/line"/>
+
+
+    <Button
+        style="@style/commitBtn"
+        android:text="注  册"
+        android:layout_marginTop="@dimen/marginSize"
+        android:onClick="onRegisterClick"/>
+
+</LinearLayout>
